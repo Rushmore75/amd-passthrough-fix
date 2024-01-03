@@ -69,4 +69,7 @@ echo 'device_specific' > /sys/bus/pci/devices/$DEVICE_ID/reset_method
 systemctl enable gpu-vendor-reset-method.service
 
 # Done!
+echo ""
 echo "Done!"
+echo ""
+echo "Now reboot for the changes to take effect."
