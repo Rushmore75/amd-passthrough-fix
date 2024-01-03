@@ -4,6 +4,23 @@ echo "Assuming you are running 1 AMD GPU."
 echo "Press CTRL-C to cancel. Press any key to proceed..."
 read
 
+# Check kernel options
+KERNEL_OPTIONS=('CONFIG_FTRACE=' 'CONFIG_KPROBES=' 'CONFIG_PCI_QUIRKS=' 'CONFIG_KALLSYMS=' 'CONFIG_KALLSYMS_ALL=' 'CONFIG_FUNCTION_TRACER=')
+MISSING=0
+for OPTION in "${KERNEL_OPTIONS[@]}"; do
+	if [[ $(grep $OPTION /boot/config-$(uname -r) | awk -F= '{print $2}') == "y" ]]; then
+		echo "$OPTION ✅"
+	else
+		echo "$OPTION ❌"
+		$MISSING=1
+	fi
+done
+if (( $MISSING == 1 )); then
+	echo "Error: Missing kernel option..."
+	exit
+fi
+
+
 # Make sure IOMMU is enabled
 if dmesg | grep -qe "DMAR: IOMMU enabled"; then echo IOMMU Enabled - continuing...;
 else 
