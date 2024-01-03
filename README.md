@@ -6,6 +6,9 @@ Created based on the information found in these sources:
 - https://pve.proxmox.com/wiki/PCI_Passthrough
 - https://us.informatiweb.net/tutorials/it/bios/enable-iommu-or-vt-d-in-your-bios.html
 
+# Before you run:
+Note that I'm running this script as root, much of the script requires elevated privliages.
+
 ## IOMMU Interrupt Remapping
 My test computers support interrupt rempping, therefor I cannot test the workaround for other systems.
 Check [this link](https://pve.proxmox.com/wiki/PCI_Passthrough#Verify_IOMMU_interrupt_remapping_is_enabled) to find out your situation.
