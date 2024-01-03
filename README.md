@@ -6,12 +6,9 @@ Created based on the information found in these sources:
 - https://pve.proxmox.com/wiki/PCI_Passthrough
 - https://us.informatiweb.net/tutorials/it/bios/enable-iommu-or-vt-d-in-your-bios.html
 
-
 ## IOMMU Interrupt Remapping
 My test computers support interrupt rempping, therefor I cannot test the workaround for other systems.
-Check this link to find out your situation.
-
-https://pve.proxmox.com/wiki/PCI_Passthrough#Verify_IOMMU_interrupt_remapping_is_enabled
+Check [this link](https://pve.proxmox.com/wiki/PCI_Passthrough#Verify_IOMMU_interrupt_remapping_is_enabled) to find out your situation.
 
 ## My VM is crashing
 According to [this](https://pve.proxmox.com/wiki/PCI_Passthrough#Tips) you may need to do this on your host:
