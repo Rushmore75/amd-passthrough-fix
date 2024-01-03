@@ -7,8 +7,15 @@ Created based on the information found in these sources:
 - https://us.informatiweb.net/tutorials/it/bios/enable-iommu-or-vt-d-in-your-bios.html
 
 
-## Please note
-I don't have enough commputers to test this on multiple systems to script it in.
-Take a look here to make sure your system is good. :)
+## IOMMU Interrupt Remapping
+My test computers support interrupt rempping, therefor I cannot test the workaround for other systems.
+Check this link to find out your situation.
 
 https://pve.proxmox.com/wiki/PCI_Passthrough#Verify_IOMMU_interrupt_remapping_is_enabled
+
+## My VM is crashing
+According to [this](https://pve.proxmox.com/wiki/PCI_Passthrough#Tips) you may need to do this on your host:
+```
+echo "options kvm ignore_msrs=1 report_ignored_msrs=0" > /etc/modprobe.d/kvm.conf
+```
+Please read the link real quick to make sure this is *actually* what you need :)
