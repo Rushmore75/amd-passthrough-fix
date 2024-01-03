@@ -9,11 +9,11 @@ Created based on the information found in these sources:
 # Before you run:
 Note that I'm running this script as root, much of the script requires elevated privliages.
 
-## IOMMU Interrupt Remapping
+### IOMMU Interrupt Remapping
 My test computers support interrupt rempping, therefor I cannot test the workaround for other systems.
 Check [this link](https://pve.proxmox.com/wiki/PCI_Passthrough#Verify_IOMMU_interrupt_remapping_is_enabled) to find out your situation.
 
-## My VM is crashing
+### My VM is crashing
 According to [this](https://pve.proxmox.com/wiki/PCI_Passthrough#Tips) you may need to do this on your host:
 ```
 echo "options kvm ignore_msrs=1 report_ignored_msrs=0" > /etc/modprobe.d/kvm.conf
