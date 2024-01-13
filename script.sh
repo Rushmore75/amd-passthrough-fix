@@ -26,6 +26,8 @@ if dmesg | grep -qe "DMAR: IOMMU enabled"; then echo IOMMU Enabled - continuing.
 else 
 	echo IOMMU Not Enabled!
 	echo "This link can help you enable it in your BIOS: https://us.informatiweb.net/tutorials/it/bios/enable-iommu-or-vt-d-in-your-bios.html"
+ 	echo "Also append \"amd_iommu=on iommu=pt\" to your \"GRUB_CMDLINE_LINUX_DEFAULT=\" line in /etc/default/grub"
+  	echo "Then run update-grub"
 	exit
 fi
 

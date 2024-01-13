@@ -13,6 +13,7 @@ Note that I'm running this script as root, much of the script requires elevated 
 My test computers support interrupt rempping, therefor I cannot test the workaround for other systems.
 Check [this link](https://pve.proxmox.com/wiki/PCI_Passthrough#Verify_IOMMU_interrupt_remapping_is_enabled) to find out your situation.
 
+# Troubleshooting
 ### My VM is crashing
 According to [this](https://pve.proxmox.com/wiki/PCI_Passthrough#Tips) you may need to do this on your host:
 ```
