@@ -7,7 +7,8 @@ Created based on the information found in these sources:
 - https://us.informatiweb.net/tutorials/it/bios/enable-iommu-or-vt-d-in-your-bios.html
 
 # Before you run:
-Note that I'm running this script as root, much of the script requires elevated privliages.
+* Note that I'm running this script as root, much of the script requires elevated privliages.
+* Note: This script is built for systems running systemd, because that's what Proxmox uses. In the future I might generalize it.
 
 ### IOMMU Interrupt Remapping
 My test computers support interrupt rempping, therefor I cannot test the workaround for other systems.
