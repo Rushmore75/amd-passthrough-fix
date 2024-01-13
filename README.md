@@ -6,15 +6,24 @@ Created based on the information found in these sources:
 - https://pve.proxmox.com/wiki/PCI_Passthrough
 - https://us.informatiweb.net/tutorials/it/bios/enable-iommu-or-vt-d-in-your-bios.html
 
-# Before you run:
-* Note that I'm running this script as root, much of the script requires elevated privliages.
+## Proxmox notes:
+This script was built with the intention of being used on Proxmox nodes, it will probably work other places as well however.
+Special things to note about using Proxmox:
+* You'll need to enable the `no-subscription` repository to get the headers.
+    * You can do this in the Proxmox gui quite easily: Select the node > Updates > Repositories > Add (Click `OK` on prompt) > Change drop-down to `No-subscription` > Click `Add`
+* To install the header files: `apt install pve-headers`
+    * Reboot after installing them!
+
+## Before you run:
+* Make sure you have the **kernel headers** installed (as well as `git` and `dkms`)! The script will error out otherwise.
+* Run script as root
 * Note: This script is built for systems running systemd, because that's what Proxmox uses. In the future I might generalize it.
 
 ### IOMMU Interrupt Remapping
 My test computers support interrupt rempping, therefor I cannot test the workaround for other systems.
 Check [this link](https://pve.proxmox.com/wiki/PCI_Passthrough#Verify_IOMMU_interrupt_remapping_is_enabled) to find out your situation.
 
-# Troubleshooting
+## Troubleshooting
 ### My VM is crashing
 According to [this](https://pve.proxmox.com/wiki/PCI_Passthrough#Tips) you may need to do this on your host:
 ```
