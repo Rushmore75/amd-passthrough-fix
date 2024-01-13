@@ -19,3 +19,6 @@ According to [this](https://pve.proxmox.com/wiki/PCI_Passthrough#Tips) you may n
 echo "options kvm ignore_msrs=1 report_ignored_msrs=0" > /etc/modprobe.d/kvm.conf
 ```
 Please read the link real quick to make sure this is *actually* what you need :)
+
+### VM Boots but I have a black screen
+I solved this by setting the gpu to not be for display.
