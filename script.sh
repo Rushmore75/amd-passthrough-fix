@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ ! (which dkms) ]]; then echo "Install dkms" && exit; fi;
-if [[ ! (which git) ]]; then echo "Install git" && exit; fi;
+if [[ !(which dkms) ]]; then echo "Install dkms" && exit; fi;
+if [[ !(which git) ]]; then echo "Install git" && exit; fi;
 
 echo "Assuming you are running 1 AMD GPU."
 echo "Press CTRL-C to cancel. Press any key to proceed..."
