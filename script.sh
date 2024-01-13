@@ -40,7 +40,7 @@ echo "blacklist radeon" >> /etc/modprobe.d/blacklist.conf
 
 # Remove previous versions of vendor-reset
 if dkms status | grep -q vendor-reset; then
-	dkms remove $(dkms status | grep vendor-reset | awk -F, '{print $1}') --all
+	dkms remove $(dkms status | grep vendor-reset | awk -F: '{print $1}') --all
 fi
 
 # Get the vendor-reset patch and install it
