@@ -47,7 +47,7 @@ fi
 git clone https://github.com/gnif/vendor-reset
 cd vendor-reset
 dkms install .
-modprobe vendor-reset
+echo "vendor-reset" >> /etc/modules
 update-initramfs -u
 
 # Change gpu vendor reset method at startup
