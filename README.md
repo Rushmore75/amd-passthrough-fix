@@ -23,6 +23,10 @@ Special things to note about using Proxmox:
 My test computers support interrupt rempping, therefor I cannot test the workaround for other systems.
 Check [this link](https://pve.proxmox.com/wiki/PCI_Passthrough#Verify_IOMMU_interrupt_remapping_is_enabled) to find out your situation.
 
+The script currently doesn't automatically add the kernel parameters to your grub config. [This page on the arch wiki](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Enabling_IOMMU) tells you what to do. In short: 
+* Intel CPU: `intel_iommu=on iommu=pt`
+* AMD CPU: `iommu=pt`
+
 ## Troubleshooting
 ### My VM is crashing
 According to [this](https://pve.proxmox.com/wiki/PCI_Passthrough#Tips) you may need to do this on your host:
