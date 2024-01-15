@@ -62,7 +62,6 @@ ExecStart=/bin/bash $SCRIPT
 [Install]
 WantedBy=default.target
 " > /etc/systemd/system/gpu-vendor-reset-method.service
-chmod +x $SCRIPT
 
 # Finding correct pci device
 DEVICE_ID=$(ls /sys/bus/pci/devices/ | grep $(lspci | grep VGA | grep AMD | awk '{print $1}'))
@@ -70,6 +69,7 @@ DEVICE_ID=$(ls /sys/bus/pci/devices/ | grep $(lspci | grep VGA | grep AMD | awk 
 echo "#!/bin/sh
 echo 'device_specific' > /sys/bus/pci/devices/$DEVICE_ID/reset_method
 " > $SCRIPT
+chmod +x $SCRIPT
 
 systemctl enable gpu-vendor-reset-method.service
 
